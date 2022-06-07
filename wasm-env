@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ "$WASI_PREFIX" = "" ] && export WASI_PREFIX="/usr"
+
+export CC="$WASI_PREFIX/bin/clang --target=wasm32-wasi --sysroot=$WASI_PREFIX/share/wasi-sysroot"
+export CXX="$WASI_PREFIX/bin/clang++ --target=wasm32-wasi --sysroot=$WASI_PREFIX/share/wasi-sysroot"
+export LD="$WASI_PREFIX/bin/llvm-ranlib"
+export AR="$WASI_PREFIX/bin/llvm-ar"
+export RANLIB="$WASI_PREFIX/bin/llvm-ranlib"
+
+export CFLAGS="-D_WASI_EMULATED_SIGNAL -DGNULIB_defined_verify_NSIG_constraint"
+export LDFLAGS="-lwasi-emulated-signal"

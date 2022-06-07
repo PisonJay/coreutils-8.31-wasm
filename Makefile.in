@@ -6350,6 +6350,9 @@ pr_data = \
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
+build-sources: $(BUILT_SOURCES)
+	@echo 'built all sources'
+
 .SUFFIXES:
 .SUFFIXES: .1 .c .dvi .log .o .obj .pl .pl$(EXEEXT) .ps .sh .sh$(EXEEXT) .trs .x .xpl .xpl$(EXEEXT) .y
 am--refresh: Makefile

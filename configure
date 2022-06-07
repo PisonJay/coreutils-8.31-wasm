@@ -9879,8 +9879,8 @@ $as_echo "#define FUNC_REALPATH_WORKS 1" >>confdefs.h
   GNULIB_USLEEP=0;
   GNULIB_WRITE=0;
     HAVE_CHOWN=1;
-  HAVE_DUP2=1;
-  HAVE_DUP3=1;
+  HAVE_DUP2=0;
+  HAVE_DUP3=0;
   HAVE_EUIDACCESS=1;
   HAVE_FACCESSAT=1;
   HAVE_FCHDIR=1;
@@ -29364,7 +29364,7 @@ $as_echo "#define GNULIB_TEST_DUP 1" >>confdefs.h
 
 
 
-$as_echo "#define HAVE_DUP2 1" >>confdefs.h
+$as_echo "#define HAVE_DUP2 0" >>confdefs.h
 
 
   if test $HAVE_DUP2 = 1; then
@@ -43842,17 +43842,19 @@ $as_echo "#define MOUNTED_INTERIX_STATVFS 1" >>confdefs.h
     esac
   fi
 
-  if test -z "$ac_list_mounted_fs"; then
-    as_fn_error $? "could not determine how to read list of mounted file systems" "$LINENO" 5
-    # FIXME -- no need to abort building the whole package
-    # Can't build mountlist.c or anything that needs its functions
-  fi
+  # if test -z "$ac_list_mounted_fs"; then
+  #   as_fn_error $? "could not determine how to read list of mounted file systems" "$LINENO" 5
+  #   # FIXME -- no need to abort building the whole package
+  #   # Can't build mountlist.c or anything that needs its functions
+  # fi
 
-  if test $ac_list_mounted_fs = found; then
-    gl_cv_list_mounted_fs=yes
-  else
-    gl_cv_list_mounted_fs=no
-  fi
+  # if test $ac_list_mounted_fs = found; then
+  #   gl_cv_list_mounted_fs=yes
+  # else
+  #   gl_cv_list_mounted_fs=no
+  # fi
+
+  gl_cv_list_mounted_fs=no
 
   if test $gl_cv_list_mounted_fs = yes; then
 
